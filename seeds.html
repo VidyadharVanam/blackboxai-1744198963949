@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seeds - FARM-C</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="filters.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,55 +15,78 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation (same as index.html) -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2 mb-4 md:mb-0">
-                <img src="https://via.placeholder.com/40x40" alt="FARM-C Logo" class="h-10">
-                <span class="text-xl font-bold text-green-800">FARM-C</span>
-            </a>
-            
-            <div class="w-full md:w-auto">
-                <div class="relative flex items-center">
-                    <input type="text" placeholder="Search for products..." class="w-full md:w-96 px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-green-600">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-r hover:bg-green-700">
-                        <i class="fas fa-search"></i>
+    <!-- Navigation -->
+    <div id="navbar-container"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+
+    <!-- Seeds Page Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex items-center mb-6">
+            <h1 class="text-3xl font-bold">Seeds</h1>
+            <span class="ml-4 text-gray-500">(20 products)</span>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Price Filter -->
+                <div>
+                    <h3 class="font-medium mb-2">Price Range</h3>
+                    <div class="flex items-center space-x-2">
+                        <input type="number" placeholder="Min" class="w-full px-3 py-2 border rounded">
+                        <span>-</span>
+                        <input type="number" placeholder="Max" class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <!-- Seed Type Filter -->
+                <div>
+                    <h3 class="font-medium mb-2">Seed Type</h3>
+                    <select class="w-full px-3 py-2 border rounded">
+                        <option value="">All Types</option>
+                        <option>Vegetable</option>
+                        <option>Fruit</option>
+                    </select>
+                </div>
+                
+                <!-- Package Size Filter -->
+                <div>
+                    <h3 class="font-medium mb-2">Package Size</h3>
+                    <select class="w-full px-3 py-2 border rounded">
+                        <option value="">All Sizes</option>
+                        <option>10g</option>
+                        <option>50g</option>
+                        <option>100g</option>
+                        <option>500g</option>
+                        <option>1kg</option>
+                    </select>
+                </div>
+                
+                <!-- Apply Filters Button -->
+                <div class="flex items-end">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">
+                        Apply Filters
                     </button>
                 </div>
             </div>
-
-            <div class="hidden md:flex items-center space-x-6 mt-4 md:mt-0">
-                <a href="#" class="text-gray-700 hover:text-green-600">Login</a>
-                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Register</a>
-                <a href="#" class="text-gray-700 hover:text-green-600 flex flex-col items-center">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span class="text-xs">Cart</span>
-                </a>
-                <a href="#" class="text-gray-700 hover:text-green-600 flex flex-col items-center">
-                    <i class="fas fa-heart text-xl"></i>
-                    <span class="text-xs">Wishlist</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Seeds Page Content -->
-    <div class="container mx-auto px-4 py-8">
-        <div class="flex items-center mb-6">
-            <h1 class="text-3xl font-bold">Seeds</h1>
-            <span class="ml-4 text-gray-500">(42 products)</span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <!-- Seed Product 1 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="products-grid">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Tomato+Seeds" alt="Tomato Seeds" class="w-full h-48 object-cover">
                     <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">15% OFF</div>
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Hybrid Tomato Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">High yield variety, 95% germination rate</p>
+                    <p class="text-gray-600 text-sm mb-2">High yield variety, 95% germination rate - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹120</span>
@@ -75,14 +99,14 @@
                 </div>
             </div>
 
-            <!-- Seed Product 2 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Chilli+Seeds" alt="Chilli Seeds" class="w-full h-48 object-cover">
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Hot Chilli Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Spicy variety, 90-100 days to harvest</p>
+                    <p class="text-gray-600 text-sm mb-2">Spicy variety, 90-100 days to harvest - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹95</span>
@@ -94,15 +118,15 @@
                 </div>
             </div>
 
-            <!-- Seed Product 3 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Okra+Seeds" alt="Okra Seeds" class="w-full h-48 object-cover">
                     <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</div>
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Green Okra Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Tender pods, 50-60 days to harvest</p>
+                    <p class="text-gray-600 text-sm mb-2">Tender pods, 50-60 days to harvest - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹85</span>
@@ -115,14 +139,14 @@
                 </div>
             </div>
 
-            <!-- Seed Product 4 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Cucumber+Seeds" alt="Cucumber Seeds" class="w-full h-48 object-cover">
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Cucumber Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Long green variety, 55-65 days</p>
+                    <p class="text-gray-600 text-sm mb-2">Long green variety, 55-65 days - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹110</span>
@@ -134,15 +158,15 @@
                 </div>
             </div>
 
-            <!-- Seed Product 5 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 5 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Brinjal+Seeds" alt="Brinjal Seeds" class="w-full h-48 object-cover">
                     <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">20% OFF</div>
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Brinjal Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Long purple variety, 70-80 days</p>
+                    <p class="text-gray-600 text-sm mb-2">Long purple variety, 70-80 days - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹135</span>
@@ -155,14 +179,14 @@
                 </div>
             </div>
 
-            <!-- Seed Product 6 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 6 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Beans+Seeds" alt="Beans Seeds" class="w-full h-48 object-cover">
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Beans Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Bush variety, 50-60 days</p>
+                    <p class="text-gray-600 text-sm mb-2">Bush variety, 50-60 days - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹90</span>
@@ -174,14 +198,14 @@
                 </div>
             </div>
 
-            <!-- Seed Product 7 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 7 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Pumpkin+Seeds" alt="Pumpkin Seeds" class="w-full h-48 object-cover">
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Pumpkin Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Large fruit variety, 90-100 days</p>
+                    <p class="text-gray-600 text-sm mb-2">Large fruit variety, 90-100 days - Vegetable (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹150</span>
@@ -193,19 +217,257 @@
                 </div>
             </div>
 
-            <!-- Seed Product 8 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <!-- Product 8 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="fruit" data-size="50g">
                 <div class="relative">
                     <img src="https://via.placeholder.com/300x200?text=Watermelon+Seeds" alt="Watermelon Seeds" class="w-full h-48 object-cover">
                     <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</div>
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-1">Watermelon Seeds</h3>
-                    <p class="text-gray-600 text-sm mb-2">Sweet red flesh, 80-90 days</p>
+                    <p class="text-gray-600 text-sm mb-2">Sweet red flesh, 80-90 days - Fruit (50g)</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-green-600 font-bold">₹180</span>
                             <span class="text-gray-500 text-sm line-through ml-2">₹200</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="100g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Spinach+Seeds" alt="Spinach Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Spinach Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Dark green leaves, 40-50 days - Vegetable (100g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹75</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="100g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Carrot+Seeds" alt="Carrot Seeds" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">5% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Carrot Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Orange variety, 70-80 days - Vegetable (100g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹110</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹115</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="100g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Radish+Seeds" alt="Radish Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Radish Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">White variety, 25-30 days - Vegetable (100g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹65</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="100g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Onion+Seeds" alt="Onion Seeds" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Onion Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Red variety, 120-150 days - Vegetable (100g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹200</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹220</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="fruit" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Muskmelon+Seeds" alt="Muskmelon Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Muskmelon Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Sweet aromatic variety, 80-90 days - Fruit (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹160</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Cabbage+Seeds" alt="Cabbage Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Cabbage Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Compact heads, 80-100 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹130</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Cauliflower+Seeds" alt="Cauliflower Seeds" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">15% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Cauliflower Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Snow white variety, 90-100 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹150</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹175</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Peas+Seeds" alt="Peas Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Peas Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Sweet green variety, 60-70 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹95</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Broccoli+Seeds" alt="Broccoli Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Broccoli Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Nutritious variety, 70-80 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹180</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Beetroot+Seeds" alt="Beetroot Seeds" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">5% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Beetroot Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Deep red variety, 55-65 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹105</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹110</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="fruit" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Strawberry+Seeds" alt="Strawberry Seeds" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Strawberry Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Sweet juicy variety, 90-100 days - Fruit (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹220</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-type="vegetable" data-size="50g">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Corn+Seeds" alt="Corn Seeds" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Sweet Corn Seeds</h3>
+                    <p class="text-gray-600 text-sm mb-2">Yellow variety, 70-80 days - Vegetable (50g)</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹125</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹140</span>
                         </div>
                         <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
                             <i class="fas fa-shopping-cart"></i>
@@ -222,7 +484,7 @@
         </div>
     </div>
 
-    <!-- Footer (same as index.html) -->
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-6">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
