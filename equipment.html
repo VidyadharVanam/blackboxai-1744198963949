@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Equipment - FARM-C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 mb-4 md:mb-0">
+                <img src="https://via.placeholder.com/40x40" alt="FARM-C Logo" class="h-10">
+                <span class="text-xl font-bold text-green-800">FARM-C</span>
+            </a>
+            
+            <div class="w-full md:w-auto">
+                <div class="relative flex items-center">
+                    <input type="text" placeholder="Search for products..." class="w-full md:w-96 px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-green-600">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-r hover:bg-green-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-gray-700 hover:text-green-600">Login</a>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Register</a>
+                <a href="#" class="text-gray-700 hover:text-green-600 flex flex-col items-center">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="text-xs">Cart</span>
+                </a>
+                <a href="#" class="text-gray-700 hover:text-green-600 flex flex-col items-center">
+                    <i class="fas fa-heart text-xl"></i>
+                    <span class="text-xs">Wishlist</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="bg-green-700 text-white">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-wrap justify-center md:justify-start space-x-6">
+                    <a href="seeds.html" class="hover:bg-green-800 px-3 py-2 rounded flex items-center">
+                        <i class="fas fa-seedling mr-2"></i> Seeds
+                    </a>
+                    <a href="pesticides.html" class="hover:bg-green-800 px-3 py-2 rounded flex items-center">
+                        <i class="fas fa-spray-can mr-2"></i> Pesticides
+                    </a>
+                    <a href="equipment.html" class="hover:bg-green-800 px-3 py-2 rounded flex items-center">
+                        <i class="fas fa-tractor mr-2"></i> Farm Equipment
+                    </a>
+                    <a href="#" class="hover:bg-green-800 px-3 py-2 rounded flex items-center">
+                        <i class="fas fa-percentage mr-2"></i> Offers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Equipment Page Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex items-center mb-6">
+            <h1 class="text-3xl font-bold">Farm Equipment</h1>
+            <span class="ml-4 text-gray-500">(100 products)</span>
+        </div>
+
+        <!-- Sample Product Grid (showing 4 sample products) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Compact+Tractor" alt="Compact Tractor" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Compact Tractor 25HP</h3>
+                    <p class="text-gray-600 text-sm mb-2">4WD with loader attachment</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹325,000</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹360,000</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Harvester" alt="Harvester" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Combine Harvester</h3>
+                    <p class="text-gray-600 text-sm mb-2">5-ton capacity, diesel engine</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹1,250,000</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Irrigation" alt="Irrigation System" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Drip Irrigation Kit</h3>
+                    <p class="text-gray-600 text-sm mb-2">1 acre coverage with timer</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹18,500</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x200?text=Sprayer" alt="Sprayer" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">5% OFF</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-1">Power Sprayer 20L</h3>
+                    <p class="text-gray-600 text-sm mb-2">Battery operated with 8m hose</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-green-600 font-bold">₹6,750</span>
+                            <span class="text-gray-500 text-sm line-through ml-2">₹7,100</span>
+                        </div>
+                        <button class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-8">
+            <div class="flex space-x-2">
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">1</button>
+                <button class="bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">2</button>
+                <button class="bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">3</button>
+                <span class="px-4 py-2">...</span>
+                <button class="bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">25</button>
+                <button class="bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <img src="https://via.placeholder.com/40x40" alt="FARM-C Logo" class="h-8 mr-2">
+                        FARM-C
+                    </h3>
+                    <p class="text-gray-400 mb-4">India's Largest Agri Inputs Marketplace</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Products</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="seeds.html" class="text-gray-400 hover:text-white">Seeds</a></li>
+                        <li><a href="pesticides.html" class="text-gray-400 hover:text-white">Pesticides</a></li>
+                        <li><a href="equipment.html" class="text-gray-400 hover:text-white">Farm Equipment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span class="text-gray-400">123 Farm Street, Agriculture City</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span class="text-gray-400">+91 9876543210</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
